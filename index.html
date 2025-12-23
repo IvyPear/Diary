@@ -11,7 +11,7 @@
 
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-986GT815VV"></script>
@@ -443,9 +443,9 @@
     <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
 
     <!-- Scripts -->
-     <script type="module" src="/src/app.js"></script>
-
-    <script>
+     <script type="module">
+        import { initializeApp } from './app.js';
+        
         // Khởi tạo app khi DOM sẵn sàng
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initializeApp);
