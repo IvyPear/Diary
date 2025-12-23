@@ -1,3 +1,4 @@
+@import "tailwindcss";
 /* Define CSS Variables for Theming */
 :root {
     --bg: #F7FBFB;
