@@ -8,9 +8,9 @@ import { Utils } from './modules/utils.js';
 import { ChartManager } from './modules/chart.js';
 import { ReportManager } from './modules/report.js';
 
-// =====================
+
 // APP STATE
-// =====================
+
 export const APP_STATE = {
     currentView: 'diary',
     currentTheme: 'mint',

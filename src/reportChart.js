@@ -12,6 +12,7 @@ export function drawCharts() {
     weeklyCtx.innerHTML = '';
     pieCtx.innerHTML = '';
 
+    
     // Lấy màu từ biến CSS
     const rootStyle = getComputedStyle(document.documentElement);
     const accentColor = rootStyle.getPropertyValue('--accent').trim();

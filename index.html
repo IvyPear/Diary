@@ -5,24 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pastel Daily Diary</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Main CSS -->
     <link rel="stylesheet" href="/src/style.css">
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-986GT815VV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-986GT815VV');
-</script>
-<body class="theme-mint min-h-screen pt-20" onresize="resizeChart()">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-986GT815VV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-986GT815VV');
+    </script>
+</head>
+
+<!-- ❌ ĐÃ XÓA onresize -->
+<body class="theme-mint min-h-screen pt-20">
 
     <!-- Theme Panel -->
     <div id="theme-panel" class="fixed top-20 right-4 z-50 bg-card p-4 rounded-card shadow-soft hidden">
@@ -43,7 +46,7 @@
                 <i data-lucide="book-open" class="inline w-6 h-6 mr-2"></i>
                 Diary for you🌿
             </div>
-            
+
             <div class="flex space-x-2 md:space-x-4">
                 <button class="nav-item p-2 md:px-4 flex items-center space-x-1" data-view="diary" onclick="switchView('diary')">
                     <i data-lucide="book-open" class="w-5 h-5"></i><span class="hidden md:inline"> Nhật Ký</span>
@@ -57,16 +60,16 @@
                 <button class="nav-item p-2 md:px-4 flex items-center space-x-1" data-view="reflection" onclick="switchView('reflection')">
                     <i data-lucide="sparkles" class="w-5 h-5"></i><span class="hidden md:inline"> Reflection</span>
                 </button>
-                <button id="theme-toggle" class="nav-item p-2 md:px-4 flex items-center space-x-1" onclick="toggleThemePanel()">
+                <button class="nav-item p-2 md:px-4 flex items-center space-x-1" onclick="toggleThemePanel()">
                     <i data-lucide="palette" class="w-5 h-5"></i><span class="hidden md:inline"> Theme</span>
                 </button>
-                <button id="export-btn" class="nav-item p-2 md:px-4 flex items-center space-x-1" onclick="exportData()">
+                <button class="nav-item p-2 md:px-4 flex items-center space-x-1" onclick="exportData()">
                     <i data-lucide="download" class="w-5 h-5"></i><span class="hidden md:inline"> Export</span>
                 </button>
             </div>
         </div>
     </nav>
-    
+
     <!-- Main Content -->
     <main class="max-w-5xl mx-auto p-4 md:p-8">
         
@@ -439,19 +442,11 @@
 
     </main>
 
-    <!-- Notification Container -->
+    <!-- Notification -->
     <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
 
-    <!-- Scripts -->
-     <script type="module" src="/src/app.js"></script>
+    <!-- ✅ CHỈ LOAD app.js -->
+    <script type="module" src="/src/app.js"></script>
 
-    <script>
-        // Khởi tạo app khi DOM sẵn sàng
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeApp);
-        } else {
-            initializeApp();
-        }
-    </script>
 </body>
 </html>

@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* Define CSS Variables for Theming */
 :root {
     --bg: #F7FBFB;
@@ -11,6 +14,7 @@
     --radius-large: 24px;
     --radius-input: 14px;
 }
+
 
 /* Theme Definitions */
 .theme-mint {
