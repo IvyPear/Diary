@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pastel Daily Diary</title>
 
+    <!-- Vite sẽ xử lý Tailwind thông qua PostCSS nếu cần, nhưng giữ CDN cho đơn giản -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+    <!-- Giữ nguyên Lucide từ CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Link CSS - Vite sẽ xử lý đường dẫn tự động -->
+    <link rel="stylesheet" href="/style.css">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-986GT815VV"></script>
@@ -45,22 +48,22 @@
             </div>
             
             <div class="flex space-x-2 md:space-x-4">
-                <button class="nav-item p-2 md:px-4 flex items-center space-x-1" data-view="diary" onclick="switchView('diary')">
+                <button class="nav-item p-2 md:px-4 flex items-center space-x-1" data-view="diary" onclick="window.switchView('diary')">
                     <i data-lucide="book-open" class="w-5 h-5"></i><span class="hidden md:inline"> Nhật Ký</span>
                 </button>
-                <button class="nav-item p-2 md:px-4 flex items-center space-x-1" data-view="timeline" onclick="switchView('timeline')">
+                <button class="nav-item p-2 md:px-4 flex items-center space-x-1" data-view="timeline" onclick="window.switchView('timeline')">
                     <i data-lucide="clock" class="w-5 h-5"></i><span class="hidden md:inline"> Timeline</span>
                 </button>
-                <button class="nav-item p-2 md:px-4 flex items-center space-x-1" data-view="report" onclick="switchView('report')">
+                <button class="nav-item p-2 md:px-4 flex items-center space-x-1" data-view="report" onclick="window.switchView('report')">
                     <i data-lucide="bar-chart-3" class="w-5 h-5"></i><span class="hidden md:inline"> Báo Cáo</span>
                 </button>
-                <button class="nav-item p-2 md:px-4 flex items-center space-x-1" data-view="reflection" onclick="switchView('reflection')">
+                <button class="nav-item p-2 md:px-4 flex items-center space-x-1" data-view="reflection" onclick="window.switchView('reflection')">
                     <i data-lucide="sparkles" class="w-5 h-5"></i><span class="hidden md:inline"> Reflection</span>
                 </button>
-                <button id="theme-toggle" class="nav-item p-2 md:px-4 flex items-center space-x-1" onclick="toggleThemePanel()">
+                <button id="theme-toggle" class="nav-item p-2 md:px-4 flex items-center space-x-1" onclick="window.toggleThemePanel()">
                     <i data-lucide="palette" class="w-5 h-5"></i><span class="hidden md:inline"> Theme</span>
                 </button>
-                <button id="export-btn" class="nav-item p-2 md:px-4 flex items-center space-x-1" onclick="exportData()">
+                <button id="export-btn" class="nav-item p-2 md:px-4 flex items-center space-x-1" onclick="window.exportData()">
                     <i data-lucide="download" class="w-5 h-5"></i><span class="hidden md:inline"> Export</span>
                 </button>
             </div>
@@ -217,7 +220,7 @@
                 </div>
 
                 <!-- Save Button -->
-                <button onclick="saveDailyEntry()" class="bg-button text-white w-full p-4 rounded-[24px] text-xl font-semibold shadow-soft hover:opacity-90 transition btn-pulse">
+                <button onclick="window.saveDailyEntry()" class="bg-button text-white w-full p-4 rounded-[24px] text-xl font-semibold shadow-soft hover:opacity-90 transition btn-pulse">
                     <span class="flex items-center justify-center space-x-2">
                         <i data-lucide="save" class="w-5 h-5"></i>
                         <span>Lưu nhật ký hôm nay</span>
@@ -248,7 +251,7 @@
                 
                 <!-- Mood Filter -->
                 <div>
-                    <select id="mood-filter" onchange="filterTimelineEntries()" class="rounded-input border-accent-light shadow-sm">
+                    <select id="mood-filter" onchange="window.filterTimelineEntries()" class="rounded-input border-accent-light shadow-sm">
                         <option value="">Lọc tâm trạng...</option>
                         <option value="😊">😊 Vui vẻ</option>
                         <option value="😢">😢 Buồn bã</option>
@@ -260,14 +263,14 @@
                 
                 <!-- Type Filter (New) -->
                 <div>
-                    <select id="type-filter" onchange="filterTimelineEntries()" class="rounded-input border-accent-light shadow-sm">
+                    <select id="type-filter" onchange="window.filterTimelineEntries()" class="rounded-input border-accent-light shadow-sm">
                         <option value="">Tất cả loại</option>
                         <option value="entry">Nhật ký</option>
                         <option value="moment">Khoảnh khắc</option>
                     </select>
                 </div>
                 
-                <button onclick="clearFilters()" class="text-sm text-soft hover:text-accent transition">
+                <button onclick="window.clearFilters()" class="text-sm text-soft hover:text-accent transition">
                     <i data-lucide="filter-x" class="w-4 h-4 mr-1"></i>
                     Xóa bộ lọc
                 </button>
@@ -286,7 +289,7 @@
                 
                 <!-- Add Moment Button -->
                 <div class="timeline-item flex justify-center">
-                    <button class="bg-button text-white p-3 rounded-[24px] text-sm font-semibold shadow-soft hover:opacity-90 transition flex items-center space-x-2 btn-pulse" onclick="showMomentInput()">
+                    <button class="bg-button text-white p-3 rounded-[24px] text-sm font-semibold shadow-soft hover:opacity-90 transition flex items-center space-x-2 btn-pulse" onclick="window.showMomentInput()">
                         <i data-lucide="plus" class="w-4 h-4"></i>
                         <span>Thêm khoảnh khắc đáng nhớ</span>
                     </button>
@@ -298,7 +301,7 @@
                     <input id="moment-name" type="text" class="w-full rounded-input border-accent-light shadow-sm mb-3" placeholder="Tên khoảnh khắc (VD: Ăn tối cùng bạn bè)">
                     <textarea id="moment-desc" rows="2" class="w-full rounded-input border-accent-light shadow-sm mb-3" placeholder="Mô tả ngắn gọn..."></textarea>
                     <div class="flex space-x-2">
-                        <button onclick="saveMoment()" class="bg-accent text-white p-3 rounded-lg font-semibold hover:bg-button transition flex items-center space-x-2">
+                        <button onclick="window.saveMoment()" class="bg-accent text-white p-3 rounded-lg font-semibold hover:bg-button transition flex items-center space-x-2">
                             <i data-lucide="save" class="w-4 h-4"></i>
                             <span>Lưu Khoảnh Khắc</span>
                         </button>
@@ -387,7 +390,7 @@
             
             <!-- Refresh Button -->
             <div class="mt-6 text-center">
-                <button onclick="refreshReport()" class="bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-button transition flex items-center space-x-2 mx-auto">
+                <button onclick="window.refreshReport()" class="bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-button transition flex items-center space-x-2 mx-auto">
                     <i data-lucide="refresh-cw" class="w-4 h-4"></i>
                     <span>Làm mới báo cáo</span>
                 </button>
@@ -428,7 +431,7 @@
                 </div>
                 
                 <!-- Save Button -->
-                <button onclick="saveReflection()" class="bg-button text-white w-full p-4 rounded-[24px] text-xl font-semibold shadow-soft hover:opacity-90 transition btn-pulse">
+                <button onclick="window.saveReflection()" class="bg-button text-white w-full p-4 rounded-[24px] text-xl font-semibold shadow-soft hover:opacity-90 transition btn-pulse">
                     <span class="flex items-center justify-center space-x-2">
                         <i data-lucide="save" class="w-5 h-5"></i>
                         <span>Lưu Reflection</span>
@@ -443,10 +446,12 @@
     <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
 
     <!-- Scripts -->
-     <script type="module">
+    <!-- IMPORTANT: Vite sẽ xử lý module imports, sửa script type="module" -->
+    <script type="module">
+        // Import app.js - Vite sẽ xử lý đường dẫn
         import { initializeApp } from './app.js';
         
-        // Khởi tạo app khi DOM sẵn sàng
+        // Khởi tạo app
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initializeApp);
         } else {

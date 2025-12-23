@@ -1,4 +1,5 @@
 // app.js - Main App Initialization
+import './style.css';
 import { StorageManager } from './modules/storage.js';
 import { initTheme, setTheme } from './modules/theme.js';
 import { DiaryManager } from './modules/diary.js';
