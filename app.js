@@ -290,13 +290,12 @@ function setupAutoSave() {
     });
 }
 
-// Initialize the app
 export function initializeApp() {
     console.log('Initializing app...');
     
-    // Initialize Lucide icons
+    // Khởi tạo Lucide icons – gọi ngay ở đây
     createIcons();
-    
+
     // Initialize storage
     StorageManager.initializeDefaults();
     
@@ -383,13 +382,6 @@ window.refreshReport = function() {
     Utils.showNotification('Báo cáo đã được làm mới!', 'success');
 };
 
-// Initialize when DOM is loaded
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeApp);
-} else {
-    initializeApp();
-}
-// Make functions available globally for HTML onclick handlers
 window.switchView = switchView;
 window.toggleThemePanel = toggleThemePanel;
 window.setTheme = setTheme;
@@ -400,6 +392,20 @@ window.saveMoment = saveMoment;
 window.saveReflection = saveReflection;
 window.clearFilters = clearFilters;
 window.exportData = exportData;
-window.resizeChart = resizeChart;
+window.resizeChart = resizeChart; // ← Bắt buộc có dòng này
 window.editEntry = editEntry;
 window.deleteEntry = deleteEntry;
+
+window.refreshReport = function() {
+    if (ChartManager) {
+        ChartManager.drawCharts();
+    }
+    Utils.showNotification('Báo cáo đã được làm mới!', 'success');
+};
+
+// Khởi động app khi DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}
