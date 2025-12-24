@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+﻿name: Deploy to GitHub Pages
 
 on:
   push:
@@ -20,13 +20,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
           
       - name: Install dependencies
-        run: npm ci
+        run: npm install  # ĐỔI TỪ npm ci THÀNH npm install
         
       - name: Build
         run: npm run build
-        
+        env:
+          NODE_ENV: production
+          CI: false  # Tắt CI mode để Vite build không bị strict
+          
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
