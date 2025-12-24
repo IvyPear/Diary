@@ -1,4 +1,4 @@
-// app.js - Main App Initialization
+import './style.css';
 import { StorageManager } from './modules/storage.js';
 import { initTheme, setTheme } from './modules/theme.js';
 import { DiaryManager } from './modules/diary.js';
@@ -7,6 +7,7 @@ import { ReflectionManager } from './modules/reflection.js';
 import { Utils } from './modules/utils.js';
 import { ChartManager } from './modules/chart.js';
 import { ReportManager } from './modules/report.js';
+import { createIcons } from 'lucide';
 
 // App State
 export const APP_STATE = {
@@ -294,9 +295,7 @@ export function initializeApp() {
     console.log('Initializing app...');
     
     // Initialize Lucide icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    createIcons();
     
     // Initialize storage
     StorageManager.initializeDefaults();

@@ -1,18 +1,9 @@
 import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  base: './',
-  build: {
-    minify: 'terser',
-    terserOptions: {
-      compress: { drop_console: true }, // Xóa console.log ở production
-    },
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['lucide'], // Tách nếu cần
-        },
-      },
-    },
-  },
+  base: './', // Quan trọng: giúp GitHub Pages chạy đúng đường dẫn
+  plugins: [
+    tailwindcss()
+  ],
 });
