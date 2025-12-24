@@ -389,3 +389,17 @@ if (document.readyState === 'loading') {
 } else {
     initializeApp();
 }
+// Make functions available globally for HTML onclick handlers
+window.switchView = switchView;
+window.toggleThemePanel = toggleThemePanel;
+window.setTheme = setTheme;
+window.showMomentInput = showMomentInput;
+window.filterTimelineEntries = filterTimelineEntries;
+window.saveDailyEntry = saveDailyEntry;
+window.saveMoment = saveMoment;
+window.saveReflection = saveReflection;
+window.clearFilters = clearFilters;
+window.exportData = exportData;
+window.resizeChart = resizeChart;
+window.editEntry = editEntry;
+window.deleteEntry = deleteEntry;
