@@ -1,27 +1,32 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Pastel Daily Diary</title>
 
-    <meta name="description" content="Nhật ký digital với giao diện pastel - Lưu giữ cảm xúc và khoảnh khắc mỗi ngày">
+    <!-- SEO Improvements -->
+    <meta name="description" content="Nhật ký digital với giao diện pastel dễ thương. Lưu giữ cảm xúc, khoảnh khắc hàng ngày, theo dõi tâm trạng và tạo báo cáo hàng tháng.">
+    <meta name="keywords" content="nhật ký, diary, pastel, tâm trạng, reflection, timeline">
+    <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://your-domain.com">
+    <link rel="canonical" href="https://your-github-username.github.io/Diary/">  <!-- Update to your actual URL -->
+
+    <!-- Performance: Preload fonts and critical assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" as="style">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (defer loading for performance) -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="/src/style.css">
+    <!-- Main CSS (add integrity for security if possible) -->
+    <link rel="stylesheet" href="./src/style.css">
 
-    <!-- Google Analytics -->
+    <!-- Google Analytics (async for performance) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-986GT815VV"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -30,8 +35,6 @@
         gtag('config', 'G-986GT815VV');
     </script>
 </head>
-
-<!-- ❌ ĐÃ XÓA onresize -->
 
 <body class="theme-mint min-h-screen pt-20">
 
@@ -522,8 +525,7 @@
     <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
 
     <!-- ✅ CHỈ LOAD app.js -->
-    <script type="module" src="/src/app.js"></script>
+    <script type="module" src="./src/app.js"></script>
 
 </body>
-
 </html>

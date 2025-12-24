@@ -70,7 +70,6 @@ body {
     font-family: 'Poppins', 'Inter', sans-serif;
     background-color: var(--bg);
     color: var(--text);
-    /* Task 3.b: Smooth transition cho nền và chữ khi đổi theme */
     transition: background-color 0.5s, color 0.5s;
 }
 
@@ -505,6 +504,29 @@ input[type="date"]:focus {
     animation: ripple 0.6s ease-out;
 }
 
+/* Reduce heavy animations for performance */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0s !important;
+        transition-duration: 0s !important;
+    }
+}
+
+/* Improve contrast in night theme */
+.theme-night {
+    --text: #F7FAFC;
+    /* Brighter text for better contrast */
+    --text-soft: #A0AEC0;
+}
+
+/* Lazy load images (add to .image-hover or photo-journal imgs) */
+img {
+    loading: lazy;
+    /* Native lazy loading for performance */
+    alt: "";
+    /* Default alt if missing */
+}
+
 /* View Transitions */
 .view {
     animation: slideInUp 0.5s ease-out;
@@ -758,3 +780,4 @@ button:disabled {
         display: none !important;
     }
 }
+

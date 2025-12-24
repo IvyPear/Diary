@@ -163,15 +163,11 @@ export function toggleThemePanel() {
 // =====================
 let chartLoaded = false;
 function lazyLoadChart() {
-    if (chartLoaded || APP_STATE.currentView !== 'report') return;
-    chartLoaded = true;
-
-    // Load chart chỉ khi vào trang report
-    setTimeout(() => {
-        if (typeof ChartManager !== 'undefined') {
-            ChartManager.drawCharts();
-        }
-    }, 300);
+  if (chartLoaded || APP_STATE.currentView !== 'report') return;
+  chartLoaded = true;
+  import('./modules/chart.js').then(({ ChartManager }) => {  // Giả sử ChartManager là module riêng
+    ChartManager.drawCharts();
+  }).catch(err => console.error('Chart load error:', err));
 }
 
 // =====================
@@ -238,6 +234,7 @@ function postInit() {
     setupMoodSelector();
     setupSelfCareChecklist();
     Utils.setupPhotoUpload();
+    img.alt = 'Ảnh nhật ký người dùng';  // Fix accessibility
     setupAutoSave();
 
     document.getElementById('photo-journal')?.classList.remove('hidden');
@@ -250,6 +247,7 @@ export function initializeApp() {
     document.documentElement.classList.add('preload');
     window.addEventListener('load', () => {
         document.documentElement.classList.remove('preload');
+        document.querySelectorAll('img').forEach(img => img.loading = 'lazy');  // Lazy images
     });
 
     StorageManager.initializeDefaults();
