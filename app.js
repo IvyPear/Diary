@@ -7,7 +7,7 @@ import { ReflectionManager } from './modules/reflection.js';
 import { Utils } from './modules/utils.js';
 import { ChartManager } from './modules/chart.js';
 import { ReportManager } from './modules/report.js';
-import { createIcons } from 'lucide';
+import { createIcons } from 'lucide';  // ← Chỉ vậy thôi, không thêm /dist hay gì cả
 
 // App State
 export const APP_STATE = {
