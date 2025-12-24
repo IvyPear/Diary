@@ -1,4 +1,5 @@
 import './style.css';
+// app.js - Main App Initialization
 import { StorageManager } from './modules/storage.js';
 import { initTheme, setTheme } from './modules/theme.js';
 import { DiaryManager } from './modules/diary.js';
@@ -7,7 +8,6 @@ import { ReflectionManager } from './modules/reflection.js';
 import { Utils } from './modules/utils.js';
 import { ChartManager } from './modules/chart.js';
 import { ReportManager } from './modules/report.js';
-import { createIcons } from 'lucide';  // ← Chỉ vậy thôi, không thêm /dist hay gì cả
 
 // App State
 export const APP_STATE = {
@@ -290,12 +290,15 @@ function setupAutoSave() {
     });
 }
 
+// Initialize the app
 export function initializeApp() {
     console.log('Initializing app...');
     
-    // Khởi tạo Lucide icons – gọi ngay ở đây
-    createIcons();
-
+    // Initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+    
     // Initialize storage
     StorageManager.initializeDefaults();
     
@@ -382,28 +385,7 @@ window.refreshReport = function() {
     Utils.showNotification('Báo cáo đã được làm mới!', 'success');
 };
 
-window.switchView = switchView;
-window.toggleThemePanel = toggleThemePanel;
-window.setTheme = setTheme;
-window.showMomentInput = showMomentInput;
-window.filterTimelineEntries = filterTimelineEntries;
-window.saveDailyEntry = saveDailyEntry;
-window.saveMoment = saveMoment;
-window.saveReflection = saveReflection;
-window.clearFilters = clearFilters;
-window.exportData = exportData;
-window.resizeChart = resizeChart; // ← Bắt buộc có dòng này
-window.editEntry = editEntry;
-window.deleteEntry = deleteEntry;
-
-window.refreshReport = function() {
-    if (ChartManager) {
-        ChartManager.drawCharts();
-    }
-    Utils.showNotification('Báo cáo đã được làm mới!', 'success');
-};
-
-// Khởi động app khi DOM ready
+// Initialize when DOM is loaded
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeApp);
 } else {

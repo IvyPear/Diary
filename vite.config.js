@@ -1,9 +1,17 @@
 import { defineConfig } from 'vite';
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  base: '/Diary/',  // ← Đây là cái mới cần thay
-  plugins: [
-    tailwindcss()
-  ],
+  base: './',
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    rollupOptions: {
+      input: 'index.html'
+      // XÓA hoặc sửa dòng chart: [...]
+    }
+  },
+  server: {
+    port: 5173,
+    open: true
+  }
 });
