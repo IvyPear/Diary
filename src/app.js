@@ -163,12 +163,15 @@ export function toggleThemePanel() {
 // =====================
 let chartLoaded = false;
 function lazyLoadChart() {
-    if (chartLoaded) return;
+    if (chartLoaded || APP_STATE.currentView !== 'report') return;
     chartLoaded = true;
 
-    ('requestIdleCallback' in window)
-        ? requestIdleCallback(() => ChartManager.drawCharts())
-        : setTimeout(() => ChartManager.drawCharts(), 300);
+    // Load chart chỉ khi vào trang report
+    setTimeout(() => {
+        if (typeof ChartManager !== 'undefined') {
+            ChartManager.drawCharts();
+        }
+    }, 300);
 }
 
 // =====================

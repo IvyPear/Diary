@@ -26,6 +26,7 @@ export class DiaryManager {
             gratitude1: document.getElementById('gratitude1')?.value.trim() || '',
             gratitude2: document.getElementById('gratitude2')?.value.trim() || '',
             gratitude3: document.getElementById('gratitude3')?.value.trim() || '',
+            
             selfCare: Array.from(document.querySelectorAll('.pastel-checkbox input:checked')).map(input => input.value),
             highlight: document.getElementById('highlight')?.value.trim() || '',
             photos: Array.from(document.querySelectorAll('.photo-upload img'))
