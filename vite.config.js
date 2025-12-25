@@ -1,17 +1,18 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: './',
+  base: './', // Quan trọng cho GitHub Pages
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    assetsDir: 'assets',
     rollupOptions: {
       input: 'index.html'
-      // XÓA hoặc sửa dòng chart: [...]
     }
   },
   server: {
     port: 5173,
-    open: true
+    open: true,
+    host: true
   }
 });
